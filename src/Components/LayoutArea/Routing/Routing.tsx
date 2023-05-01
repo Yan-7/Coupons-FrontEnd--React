@@ -7,6 +7,7 @@ import Home from "../../HomeArea/Home/Home";
 // import ProductList from "../../ProductsArea/ProductList/ProductList";
 import PageNotFound from "../PageNotFound/PageNotFound";
 import "./Routing.css";
+import CouponsList from "../../CouponsArea/CouponsList/CouponsList";
 
 function Routing(): JSX.Element {
     return (
@@ -14,8 +15,8 @@ function Routing(): JSX.Element {
             <Routes>
                 {/* HOME */}
                 <Route path="/home" element={<Home />} />
-                {/* PRODUCTS */}
-                {/* <Route path="/products" element={<ProductList />} /> */}
+                {/* Coupons */}
+                <Route path="/coupons" element={<CouponsList />} />
                 {/* ABOUT */}
                 <Route path="/about" element={<About />} />
                 {/* Default Rout */}

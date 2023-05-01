@@ -1,5 +1,5 @@
 import "./Loading.css";
-import loadingImage from "../../../Assets/Images/loading.gif";
+import loadingImage from "../../../Assets/images/200w.gif";
 
 function Loading(): JSX.Element {
     return (
