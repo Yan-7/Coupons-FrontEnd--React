@@ -1,3 +1,4 @@
+import { create } from "domain";
 import CouponModel from "../Models/CouponModel";
 import { createStore } from "redux";
 
@@ -22,14 +23,14 @@ export function fetchCouponAction(coupons: CouponModel[]): CouponInterface {
     return {type: CouponsActionEnum.FetchCoupons, payload:coupons};
 }
 
-export function addCouponAction(coupons:CouponModel[]): CouponInterface {
-    return {type: CouponsActionEnum.AddCoupon,payload:coupons};
+export function addCouponAction(coupon:CouponModel): CouponInterface {
+    return {type: CouponsActionEnum.AddCoupon,payload:coupon};
 }
-export function updateCouponAction(coupons:CouponModel[]): CouponInterface {
-    return {type:CouponsActionEnum.UpdateCoupon, payload:coupons};
+export function updateCouponAction(coupon:CouponModel): CouponInterface {
+    return {type:CouponsActionEnum.UpdateCoupon, payload:coupon};
 }
-export function DeleteCouponAction(coupons:CouponModel[]): CouponInterface {
-    return{type: CouponsActionEnum.DeleteCoupon, payload:coupons}    
+export function DeleteCouponAction(coupon:CouponModel): CouponInterface {
+    return{type: CouponsActionEnum.DeleteCoupon, payload:coupon}    
 }
 
 export function couponReducer(currentState: CouponsState = new CouponsState(), action: CouponInterface): CouponsState {
