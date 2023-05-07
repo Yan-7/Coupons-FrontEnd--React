@@ -8,32 +8,34 @@ import Home from "../../HomeArea/Home/Home";
 import PageNotFound from "../PageNotFound/PageNotFound";
 import "./Routing.css";
 import CouponsList from "../../CouponsArea/CouponsList/CouponsList";
+import AddCoupon from "../../CouponsArea/AddCoupon/AddCoupon";
+import CouponDetails from "../../CouponsArea/CouponDetails/CouponDetails";
+import EditCoupon from "../../CouponsArea/EditCoupon/EditCoupon";
 
 function Routing(): JSX.Element {
     return (
         <div className="Routing">
             <Routes>
-                {/* HOME */}
+                
                 <Route path="/home" element={<Home />} />
-                {/* Coupons */}
+                
                 <Route path="/coupons" element={<CouponsList />} />
-                {/* ABOUT */}
+                
                 <Route path="/about" element={<About />} />
-                {/* Default Rout */}
+                
                 <Route path="/" element={<Navigate to={"/home"} />} />
-                {/* Page Not Found */}
-                <Route path="*" element={<PageNotFound />} />
 
-                {/* <Route path="/products/details/:prodId" element={<ProductDetails />} /> */}
+                <Route path="/coupons/details/:couponId" element={<CouponDetails />} />
                 
-                {/* add product */}
-                {/* <Route path="/products/new" element={<AddProduct />} />
+                <Route path="/coupons/new" element={<AddCoupon />} />
                 
-                {/* edit product */}
-                {/* <Route path="/products/edit/:prodId" element={<EditProduct />} /> */} */
+                <Route path="/coupons/edit/:couponsId" element={<EditCoupon />} /> 
+                
+                <Route path="*" element={<PageNotFound />} />
             </Routes>
         </div>
     );
 }
 
 export default Routing;
+ 

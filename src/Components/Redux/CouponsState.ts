@@ -29,8 +29,8 @@ export function addCouponAction(coupon:CouponModel): CouponInterface {
 export function updateCouponAction(coupon:CouponModel): CouponInterface {
     return {type:CouponsActionEnum.UpdateCoupon, payload:coupon};
 }
-export function DeleteCouponAction(coupon:CouponModel): CouponInterface {
-    return{type: CouponsActionEnum.DeleteCoupon, payload:coupon}    
+export function deleteCouponAction(id:number): CouponInterface {
+    return{type: CouponsActionEnum.DeleteCoupon, payload:id}    
 }
 
 export function couponReducer(currentState: CouponsState = new CouponsState(), action: CouponInterface): CouponsState {

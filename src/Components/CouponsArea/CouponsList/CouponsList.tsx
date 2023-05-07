@@ -23,11 +23,10 @@ function CouponsList(): JSX.Element {
         );
     },[]);
 
-    console.log();
 
     return (
         <div className="ProductList">
-            <NavLink to="/products/new">➕</NavLink>
+            <NavLink to="/coupons/newCoupon">➕</NavLink>
 
             {coupons.length === 0 && (<>
                 <Loading />
@@ -35,6 +34,7 @@ function CouponsList(): JSX.Element {
 
             {coupons.map((c) => (
                 <CouponsCard key={c.id} coupon={c} />
+                
             ))}
         </div>
     );

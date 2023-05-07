@@ -1,0 +1,7 @@
+.TotalCoupons {
+    position: absolute;
+    left: 50px;
+    bottom: 100px;
+    border: 1px solid black;
+    padding: 5px;
+}
