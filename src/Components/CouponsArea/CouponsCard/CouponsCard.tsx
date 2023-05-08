@@ -16,7 +16,7 @@ function CouponsCard(props: CouponCardProps): JSX.Element {
             <br />
             Image: {props.coupon.imageName}
 			<div>
-                <NavLink to={"coupons/details/" + props.coupon.id}>
+                <NavLink to={"/coupons/details/" + props.coupon.id}>
                 <img src = {appConfig.productsImagesUrl + props.coupon.imageName} />
                 </NavLink>
             </div>

@@ -19,7 +19,7 @@ function CouponDetails(): JSX.Element {
 
     useEffect(() => {
         couponsService.getOneCoupon(couponId).then(
-            (c) => setCoupon(c),
+            (p) => setCoupon(p),
             (e) => notificationService.error(e)
         );
     },[]);
@@ -36,9 +36,6 @@ function CouponDetails(): JSX.Element {
         }
       }
     
-
-
-
       return (
         <div className="ProductDetails">
           {coupon && (
