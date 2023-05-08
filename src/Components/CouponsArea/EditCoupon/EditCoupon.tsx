@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import couponsService from "../../../Services/CouponsService";
 import notificationService from "../../../Services/NotificationService";
 import { useEffect } from "react";
+import { log } from "console";
 
 function EditCoupon(): JSX.Element {
 
@@ -13,7 +14,7 @@ function EditCoupon(): JSX.Element {
     const navigate = useNavigate();
 
     const params = useParams();
-    const couponId = +params.couponId;
+    const couponId = +params.couponsId;
 
     useEffect(() => {
         couponsService.getOneCoupon(couponId)
@@ -27,12 +28,14 @@ function EditCoupon(): JSX.Element {
     },[])
 
     async function send(coupon:CouponModel) {
+        console.log(coupon.image);
+        
+        coupon.id = couponId;
         coupon.image = (coupon.image as FileList)[0];
         console.log(coupon.image);
         try {await couponsService.editCoupon(coupon);
             notificationService.success("coupon edited");
-            navigate("coupons")
-            
+            navigate("/coupons")
         } catch (error: any) {
             notificationService.error(error);
         }
@@ -47,10 +50,10 @@ function EditCoupon(): JSX.Element {
                 <input
                     type="text"
                     {...register("name", {
-                        required: { value: true, message: "Missing name" },
+                        required: { value: true, message: "Add the name of the product" },
                         minLength: {
-                            value: 2,
-                            message: "Name must be 2 characters at least",
+                            value: 1,
+                            message: "Name needs to be longer",
                         },
                     })}
                 />
@@ -60,9 +63,9 @@ function EditCoupon(): JSX.Element {
                 <input
                     type="number"
                     {...register("price", {
-                        required: { value: true, message: "Missing price" },
-                        min: { value: 0, message: "Price can't be negative" },
-                        max: { value: 1000, message: "Price can't exceed 1000" },
+                        required: { value: true, message: "What is the price?" },
+                        min: { value: 0, message: "Price need to be higher" },
+                        max: { value: 1000, message: "1000 is the maximum" },
                     })}
                     step="0.01"
                 />
