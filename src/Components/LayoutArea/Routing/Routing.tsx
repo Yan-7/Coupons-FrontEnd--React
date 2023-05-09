@@ -27,7 +27,7 @@ function Routing(): JSX.Element {
 
                 <Route path="/coupons/details/:couponId" element={<CouponDetails />} />
                 
-                <Route path="/coupons/new" element={<AddCoupon />} />
+                <Route path="/coupons/new" element={<AddCoupon/>} />
                 
                 <Route path="/coupons/edit/:couponsId" element={<EditCoupon />} /> 
                 

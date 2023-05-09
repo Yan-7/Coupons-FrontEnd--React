@@ -35,7 +35,6 @@ class CouponsService {
     }
     
     public async editCoupon(coupon: CouponModel): Promise<void> {
-        
         const formData = new FormData();
         formData.append("name", coupon.name);
         formData.append("price", coupon.price.toString());
