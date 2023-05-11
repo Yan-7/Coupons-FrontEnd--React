@@ -26,7 +26,7 @@ function CouponsList(): JSX.Element {
 
     return (
         <div className="ProductList">
-            <NavLink to="/coupons/addCoupon">➕</NavLink>
+            <NavLink to="/coupons/new">➕</NavLink>
 
             {coupons.length === 0 && (<>
                 <Loading />

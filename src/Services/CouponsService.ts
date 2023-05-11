@@ -15,7 +15,7 @@ class CouponsService {
 
         return couponsStore.getState().coupons;
     }
-
+   
     public async getOneCoupon(id: number): Promise<CouponModel> {
         const coupon = couponsStore.getState().coupons.find((c) => c.id === id);
         return coupon;
