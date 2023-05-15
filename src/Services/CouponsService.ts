@@ -1,6 +1,6 @@
 import axios from "axios";
-import CouponModel from "../Components/Models/CouponModel";
-import { addCouponAction, couponsStore, deleteCouponAction, fetchCouponAction, updateCouponAction } from "../Components/Redux/CouponsState";
+import CouponModel from "../Models/CouponModel";
+import { addCouponAction, couponsStore, deleteCouponAction, fetchCouponAction, updateCouponAction } from "../Redux/CouponsState";
 import appConfig from "../Utils/Config";
 
 class CouponsService {

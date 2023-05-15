@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import "./AddCoupon.css";
-import CouponModel from "../../Models/CouponModel";
+import CouponModel from "../../../Models/CouponModel";
 import { useNavigate } from "react-router-dom";
 import couponsService from "../../../Services/CouponsService";
 import notificationService from "../../../Services/NotificationService";
@@ -51,7 +51,7 @@ function AddCoupon(): JSX.Element {
           })}
           step="0.01"
         />
-        <span>{formState.errors?.price.message}</span>
+        <span>{formState.errors?.price?.message}</span>
 
         <label> stock:</label>
         <input type="number" {...register("stock")} />
