@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import "./AddCoupon.css";
-import CouponModel from "../../Models/CouponModel";
+import CouponModel from "../../../Models/CouponModel";
 import { useNavigate } from "react-router-dom";
 import couponsService from "../../../Services/CouponsService";
 import notificationService from "../../../Services/NotificationService";

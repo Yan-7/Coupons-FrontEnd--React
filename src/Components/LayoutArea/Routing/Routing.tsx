@@ -1,3 +1,4 @@
+
 import { Navigate, Route, Routes } from "react-router-dom";
 import About from "../../AboutArea/About/About";
 import Home from "../../HomeArea/Home/Home";
@@ -11,6 +12,9 @@ import CouponsList from "../../CouponsArea/CouponsList/CouponsList";
 import AddCoupon from "../../CouponsArea/AddCoupon/AddCoupon";
 import CouponDetails from "../../CouponsArea/CouponDetails/CouponDetails";
 import EditCoupon from "../../CouponsArea/EditCoupon/EditCoupon";
+import Login from "../../AuthArea/Login/Login";
+import Register from "../../AuthArea/Register/Register";
+import Logout from "../../AuthArea/Logout/Logout";
 
 function Routing(): JSX.Element {
     return (
@@ -24,6 +28,12 @@ function Routing(): JSX.Element {
                 <Route path="/about" element={<About />} />
                 
                 <Route path="/" element={<Navigate to={"/home"} />} />
+
+                <Route path="/login" element={<Login />} />
+
+                <Route path="/register" element= {<Register/>} />
+
+                <Route path="/logout" element= {<Logout/>} />
 
                 <Route path="/coupons/details/:couponId" element={<CouponDetails />} />
                 
