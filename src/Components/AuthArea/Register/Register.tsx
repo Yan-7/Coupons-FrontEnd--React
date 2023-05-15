@@ -3,7 +3,7 @@ import "./Register.css";
 import UserModel from "../../../Models/UsreModel";
 import authService from "../../../Services/AuthService";
 import notificationService from "../../../Services/NotificationService";
-import { error } from "console";
+// import { error } from "console";
 
 function Register(): JSX.Element {
 
@@ -13,8 +13,8 @@ function Register(): JSX.Element {
         try {
             await authService.register(user);
             notificationService.success("welcome " +user.firstName );
-        } catch {
-            notificationService.error(error);
+        } catch (e){
+            notificationService.error(e);
         }
     }
 

@@ -1,13 +1,13 @@
 import axios from "axios";
 import UserModel from "../Models/UsreModel";
 import appConfig from "../Utils/Config";
-import { url } from "inspector";
+// import { url } from "inspector";
 import { authStore, loginAction, logoutAction, registerAction } from "../Redux/AuthenticationState";
 import CredentailsModel from "../Models/CredentailsModel";
 
 class AuthService {
   async register(user: UserModel): Promise<void> {
-    const response = await axios.post < string > (appConfig.registerUrl, url);
+    const response = await axios.post < string > (appConfig.registerUrl);
     const token = response.data;
  authStore.dispatch(registerAction(token));
   }
