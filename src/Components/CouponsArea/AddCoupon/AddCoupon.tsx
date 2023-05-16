@@ -46,7 +46,7 @@ function AddCoupon(): JSX.Element {
           type="number"
           {...register("price", {
             required: { value: true, message: "price not entered" },
-            min: { value: 1, message: "value is below 1" },
+            min: { value: 0, message: "value is below 1" },
             max: { value: 999, message: "price is too high" },
           })}
           step="0.01"
