@@ -31,7 +31,7 @@ function Routing(): JSX.Element {
 
                 <Route path="/login" element={<Login />} />
 
-                {/* <Route path="/register" element= {<Register/>} /> */}
+                <Route path="/register" element= {<Register/>} />
 
                 <Route path="/logout" element= {<Logout/>} />
 

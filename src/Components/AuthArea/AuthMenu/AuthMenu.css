@@ -1,20 +1,31 @@
 .AuthMenu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f5f5f5;
-    padding: 10px;
-  }
-  
-  .AuthMenu a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    margin-left: 5px;
-    margin-right: 5px;
-  }
-  
-  .AuthMenu a:hover {
-    text-decoration: underline;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #008080; /* Change to a deeper color */
+  color: #ffffff; /* Makes text color white for better contrast */
+  padding: 15px; /* Adds more padding for a bigger container */
+  border-radius: 10px; /* Increase border radius for a more rounded container */
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.2); /* Adds a stronger shadow for depth */
+  transition: all 0.3s ease; /* Adds transition for hover effects */
+}
+
+.AuthMenu span {
+  font-weight: 600; /* Makes non-link text bolder */
+  margin-right: 5px; /* Adds a bit of margin to separate the text from the links */
+}
+
+.AuthMenu a {
+  text-decoration: none;
+  color: #ffffff; /* Makes link color white for better contrast */
+  font-weight: 600; /* Makes link text bolder */
+  margin: 0 10px; /* Provides equal left and right margin */
+  padding: 5px 10px; /* Adds a bit of padding around the links for a larger clickable area */
+  transition: all 0.3s ease; /* Adds transition for hover effects */
+  border-bottom: 2px solid transparent; /* Prepares for hover effect */
+}
+
+.AuthMenu a:hover {
+  color: #ffff00; /* Changes the color on hover for a more interactive feel */
+  border-bottom: 2px solid #ffff00; /* Underline effect on hover */
+}

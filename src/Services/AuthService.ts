@@ -7,9 +7,14 @@ import CredentailsModel from "../Models/CredentailsModel";
 
 class AuthService {
   async register(user: UserModel): Promise<void> {
-    const response = await axios.post < string > (appConfig.registerUrl);
-    const token = response.data;
- authStore.dispatch(registerAction(token));
+    try {
+      const response = await axios.post<string>(appConfig.registerUrl, user); // Added 'user' to the request
+      const token = response.data;
+      authStore.dispatch(registerAction(token));
+    } catch (error) {
+      console.error("Failed to register user", error);
+      throw error; // Throwing error for higher level error handling
+    }
   }
 
 async login(credentials: CredentailsModel): Promise<void> {
