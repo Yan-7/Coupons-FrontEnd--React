@@ -1,47 +1,47 @@
 import { useEffect, useState } from "react";
-import UserModel from "../../../Models/UsreModel";
+import UserModel from "../../../Models/UsereModel";
 import "./AuthMenu.css";
 import { authStore } from "../../../Redux/AuthenticationState";
 import { NavLink } from "react-router-dom";
 
 function AuthMenu(): JSX.Element {
 
-    const [user, setUser] = useState<UserModel>();
+    const [user, setUser] = useState<UserModel | null>(null);
 
     useEffect(() => {
-        setUser(authStore.getState().user);
+        const currentState = authStore.getState().user;
+        setUser(currentState ? {...currentState} : null); // Defensively copy the user object
 
-        const unsubscribe =authStore.subscribe(() => {
-            setUser(authStore.getState().user);
+        const unsubscribe = authStore.subscribe(() => {
+            const newState = authStore.getState().user;
+            setUser(newState ? {...newState} : null); // Defensively copy the user object
         });
 
         return () => {
             unsubscribe();
         };
-    },[]);
+    }, []);
  
     return (
         <div className="AuthMenu">
-			{!user && 
+            {!user && 
             <>
-            <span>
-                Welcome to our coupons shop
-            </span>
+                <span>Welcome to our coupons shop</span>
 
-            <span> | </span>
-            
-            <NavLink to="/register">Register</NavLink>
-            
-            <span> | </span>
+                <span> | </span>
+                
+                <NavLink to="/register">Register</NavLink>
+                
+                <span> | </span>
 
-            <NavLink to="/login">Login</NavLink>
+                <NavLink to="/login">Login</NavLink>
             </>
             }
 
             {user &&
                 <>
                     <span>
-                        Welcome {user.firstName} {user.lastName}
+                        Welcome {user.firstName || 'Unknown'} {user.lastName || ''}
                     </span>
                     <NavLink to="/logout">Logout</NavLink>
                 </>

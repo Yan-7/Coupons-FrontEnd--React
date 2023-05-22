@@ -1,4 +1,3 @@
-import { create } from "domain";
 import CouponModel from "../Models/CouponModel";
 import { createStore } from "redux";
 
@@ -6,34 +5,52 @@ export class CouponsState {
     public coupons: CouponModel[] = [];
 }
 
-enum CouponsActionEnum {
+export enum CouponsActionEnum {
     FetchCoupons,
     AddCoupon,
     UpdateCoupon,
     DeleteCoupon
 }
-export default CouponsActionEnum;
 
-export interface CouponInterface {
-    type: CouponsActionEnum
-    payload: any;
+type FetchCouponsAction = {
+    type: CouponsActionEnum.FetchCoupons
+    payload: CouponModel[];
 }
 
-export function fetchCouponAction(coupons: CouponModel[]): CouponInterface {
+type AddCouponAction = {
+    type: CouponsActionEnum.AddCoupon
+    payload: CouponModel;
+}
+
+type UpdateCouponAction = {
+    type: CouponsActionEnum.UpdateCoupon
+    payload: CouponModel;
+}
+
+type DeleteCouponAction = {
+    type: CouponsActionEnum.DeleteCoupon
+    payload: number;
+}
+
+export type CouponAction = FetchCouponsAction | AddCouponAction | UpdateCouponAction | DeleteCouponAction;
+
+export function fetchCouponAction(coupons: CouponModel[]): FetchCouponsAction {
     return {type: CouponsActionEnum.FetchCoupons, payload:coupons};
 }
 
-export function addCouponAction(coupon:CouponModel): CouponInterface {
+export function addCouponAction(coupon:CouponModel): AddCouponAction {
     return {type: CouponsActionEnum.AddCoupon,payload:coupon};
 }
-export function updateCouponAction(coupon:CouponModel): CouponInterface {
+
+export function updateCouponAction(coupon:CouponModel): UpdateCouponAction {
     return {type:CouponsActionEnum.UpdateCoupon, payload:coupon};
 }
-export function deleteCouponAction(id:number): CouponInterface {
+
+export function deleteCouponAction(id:number): DeleteCouponAction {
     return{type: CouponsActionEnum.DeleteCoupon, payload:id}    
 }
 
-export function couponReducer(currentState: CouponsState = new CouponsState(), action: CouponInterface): CouponsState {
+export function couponReducer(currentState: CouponsState = new CouponsState(), action: CouponAction): CouponsState {
     
     const newState = {...currentState};
 
@@ -62,4 +79,3 @@ export function couponReducer(currentState: CouponsState = new CouponsState(), a
 }
 
 export const couponsStore = createStore(couponReducer);
-

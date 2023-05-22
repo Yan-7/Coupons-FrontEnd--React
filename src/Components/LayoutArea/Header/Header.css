@@ -1,6 +1,21 @@
 .Header {
-	height: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #F5F5F5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.Header h1 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #411f9e;
+}
+
+.AuthMenu {
+    display: flex;
+    gap: 10px;
 }

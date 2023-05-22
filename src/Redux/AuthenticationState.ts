@@ -1,28 +1,32 @@
 import { Action, createStore } from "redux";
-import UserModel from "../Models/UsreModel";
+import UserModel from "../Models/UsereModel";
 import jwtDecode from "jwt-decode";
-import { create } from "domain";
 
 export class AuthenticationState {
-    token: string = null;
-    user: UserModel = null;
+    token: string | null = null;
+    user: UserModel | null = null;
 
-    constructor()     {
-        this.token = localStorage.getItem("token");
-        if (this.token) {
-            const decodedToken:{user: UserModel} = jwtDecode(this.token);
-            this.user = decodedToken.user;
+    constructor() {
+        const storedToken = localStorage.getItem("token");
+        if (storedToken) {
+            this.token = storedToken;
+            const decodedToken: any = jwtDecode(this.token);
+            if (decodedToken && decodedToken.user) {
+                this.user = decodedToken.user as UserModel;
+            }
         }
     }
-
 }
+
 export enum AuthActionType {
-    Register, Login, Logout
+    Register = "Register",
+    Login = "Login",
+    Logout = "Logout"
 }
 
-export interface AuthAction {
+export interface AuthAction extends Action {
     type: AuthActionType;
-    payload?: any; // <---------- somethig is still missing here
+    payload?: string;
 }
 
 export function registerAction(token:string): AuthAction {
@@ -30,29 +34,36 @@ export function registerAction(token:string): AuthAction {
 }
 
 export function loginAction(token:string): AuthAction {
-    return {type: AuthActionType.Login, payload:token}
+    return {type: AuthActionType.Login, payload: token}
 }
 
 export function logoutAction(): AuthAction  {
-    return { type: AuthActionType.Logout}   
+    return {type: AuthActionType.Logout}   
 }
 
-export function authReducer(currentState = new AuthenticationState(), action: AuthAction): AuthenticationState {
+export function authReducer(currentState: AuthenticationState = new AuthenticationState(), action: AuthAction): AuthenticationState {
     const newState = {...currentState};
+
     switch (action.type) {
         case AuthActionType.Register:
         case AuthActionType.Login:
+            if (action.payload) {
                 newState.token = action.payload;
-                const decodedToken: {user: UserModel} = jwtDecode(newState.token);
-                newState.user = decodedToken.user;
-                localStorage.setItem("token",newState.token);
-                break;
+                const decodedToken: any = jwtDecode(newState.token);
+                if (decodedToken && decodedToken.user) {
+                    newState.user = decodedToken.user as UserModel;
+                }
+                localStorage.setItem("token", newState.token);
+            }
+            break;
         case AuthActionType.Logout:
-           newState.token = null;
-           newState.user = null;
-           localStorage.removeItem("token")
-           break;
+            newState.token = null;
+            newState.user = null;
+            localStorage.removeItem("token");
+            break;
     }
+
     return newState;
 }
+
 export const authStore = createStore(authReducer);

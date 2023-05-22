@@ -1,5 +1,5 @@
 import axios, { AxiosError } from "axios";
-import UserModel from "../Models/UsreModel";
+import UserModel from "../Models/UsereModel";
 import appConfig from "../Utils/Config";
 import { authStore, loginAction, logoutAction, registerAction } from "../Redux/AuthenticationState";
 import CredentailsModel from "../Models/CredentailsModel";
@@ -25,10 +25,10 @@ class AuthService {
     } catch (err) {
       const error = err as AxiosError; // Type assertion here
       console.error("Failed to login", error);
-      if (error.response && error.response.status === 401) { 
+      if (error.response && error.response.status === 401) {
         throw new Error("Invalid username or password");
       } else {
-        throw error; // Throwing error for higher level error handling
+        throw error; 
       }
     }
   }

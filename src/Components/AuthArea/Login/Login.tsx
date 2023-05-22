@@ -3,7 +3,6 @@ import "./Login.css";
 import CredentailsModel from "../../../Models/CredentailsModel";
 import authService from "../../../Services/AuthService";
 import notificationService from "../../../Services/NotificationService";
-import { error } from "console";
 
 interface LoginFormData extends CredentailsModel {
     role: 'customer' | 'company' | 'admin';
@@ -15,11 +14,14 @@ function Login(): JSX.Element {
     
     async function send(credentials: LoginFormData) {
         try {
-            // TODO: You might want to modify the login function to accept the role as an argument
             await authService.login(credentials);
             notificationService.success(`Logged in as ${credentials.role}, it's good to have you again`);
-        } catch (error) {
-            notificationService.error(error);
+        } catch (err) {
+            if (err instanceof Error) {
+                notificationService.error(err.message);
+            } else {
+                console.error(err);
+            }
         }
     }
 
@@ -43,7 +45,7 @@ function Login(): JSX.Element {
 
             <button>Login</button>
 
-			</form>
+            </form>
         </div>
     );
 }

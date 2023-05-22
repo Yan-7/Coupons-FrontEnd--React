@@ -8,15 +8,19 @@ function Logout(): JSX.Element {
 
     const navigate = useNavigate();
 
-    useEffect(()=> {
-        authService.logout();
-        notificationService.success("good bye, hope to see you again")
-        navigate("/home");
-    },[]);
+    useEffect(() => {
+        try {
+            authService.logout();
+            notificationService.success("good bye, hope to see you again")
+        } catch (error) {
+            notificationService.error("Failed to logout");
+            console.error("Failed to logout", error);
+        } finally {
+            navigate("/home");
+        }
+    }, []);
 
-    return (
-        null
-    );
+    return null;
 }
 
 export default Logout;

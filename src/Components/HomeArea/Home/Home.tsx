@@ -11,17 +11,9 @@ function Home(): JSX.Element {
             
             <TopSellers/>
             
-            
             <Sale category="Electronics" percent={10} comments="Only for purchase above $100" />
-
-            {/* useState */}
             
             <SpecialDeal/>
-
-       
-
-            <br />
-            <br />
             
         </div>
     );

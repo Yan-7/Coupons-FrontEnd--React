@@ -4,7 +4,7 @@ import "./Header.css";
 function Header(): JSX.Element {
     return (
         <div className="Header">
-			<h1>Yunuv best Coupons</h1>
+			<h1>Groupoff - the best Coupons online</h1>
             <AuthMenu/>
         </div>
     );
