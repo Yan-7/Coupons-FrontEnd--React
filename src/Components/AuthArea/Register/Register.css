@@ -12,6 +12,9 @@
     background-color: #7375ab;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Added to center the content vertically */
 }
 
 form {
@@ -31,7 +34,8 @@ label {
     color: #333;
 }
 
-input[type="text"], input[type="password"] {
+input[type="text"],
+input[type="password"] {
     margin-top: 5px;
     padding: 10px;
     border: 1px solid #ccc;
@@ -40,7 +44,7 @@ input[type="text"], input[type="password"] {
 }
 
 p {
-    color: red;
+    color: rgb(195, 167, 167);
     margin: 5px 0;
 }
 

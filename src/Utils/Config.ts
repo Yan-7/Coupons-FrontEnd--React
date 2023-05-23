@@ -14,7 +14,7 @@ class DevelopmentConfig extends Config {
     productsImagesUrl = "http://localhost:3030/api/products/images/";
     // registerUrl = "http://localhost:3030/api/register";
     registerUrl = "http://localhost:8080/register"
-    loginUrl = "http://localhost:3030/api/auth/login";
+    loginUrl = "http://localhost:8080/login";
 }
 
 // Production Environment
