@@ -1,20 +1,20 @@
 import axios from "axios";
-import { request } from "http";
 import { authStore } from "../Redux/AuthenticationState";
 
 class InterceptorsService {
-    createInterceptors():void {
-
-        axios.interceptors.request.use((request)=> {
-            if (authStore.getState().token) {
-                request.headers.Authorization = "Bearer" + authStore.getState().token;
-            }
-            return request;
-        });
-    }
-
+  createInterceptors(): void {
+    // Add a request interceptor
+    axios.interceptors.request.use((request) => {
+      // Check if a token exists in the authentication state
+      if (authStore.getState().token) {
+        // Set the Authorization header with the token
+        request.headers.Authorization = "Bearer " + authStore.getState().token;
+      }
+      return request;
+    });
+  }
 }
 
-const interceptorsService = new InterceptorsService;
+const interceptorsService = new InterceptorsService();
 
 export default interceptorsService;

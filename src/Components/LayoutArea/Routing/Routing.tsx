@@ -16,6 +16,7 @@ import Login from "../../AuthArea/Login/Login";
 import Register from "../../AuthArea/Register/Register";
 import Logout from "../../AuthArea/Logout/Logout";
 
+
 function Routing(): JSX.Element {
     return (
         <div className="Routing">
@@ -42,6 +43,8 @@ function Routing(): JSX.Element {
                 <Route path="/coupons/edit/:couponsId" element={<EditCoupon />} /> 
                 
                 <Route path="*" element={<PageNotFound />} />
+
+
             </Routes>
         </div>
     );

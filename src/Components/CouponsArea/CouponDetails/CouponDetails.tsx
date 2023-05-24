@@ -1,11 +1,10 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, NavLink } from "react-router-dom";
 import "./CouponDetails.css";
 import CouponModel from "../../../Models/CouponModel";
 import { useEffect, useState } from "react";
 import couponsService from "../../../Services/CouponsService";
 import notificationService from "../../../Services/NotificationService";
 import appConfig from "../../../Utils/Config";
-import { NavLink } from "react-router-dom";
 
 function CouponDetails(): JSX.Element {
   const params = useParams();
