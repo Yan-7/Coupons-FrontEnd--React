@@ -38,6 +38,7 @@ function CouponDetails(): JSX.Element {
     <div className="ProductDetails">
       {coupon && (
         <>
+          <h3>Id: {coupon.id}</h3>
           <h3>Name: {coupon.name}</h3>
           <h3>Price: ${coupon.price}</h3>
           <h3>Stock: {coupon.stock}</h3>
