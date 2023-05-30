@@ -1,17 +1,20 @@
 import { useForm, SubmitHandler } from "react-hook-form";
+import { NavLink } from "react-router-dom";
 import "./Register.css";
 import UserModel from "../../../Models/UsereModel";
 import authService from "../../../Services/AuthService";
 import notificationService from "../../../Services/NotificationService";
+
+interface RegisterFormData extends UserModel {}
 
 function Register(): JSX.Element {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<UserModel>();
+  } = useForm<RegisterFormData>();
 
-  const onSubmit: SubmitHandler<UserModel> = async (data) => {
+  const onSubmit: SubmitHandler<RegisterFormData> = async (data) => {
     try {
       await authService.register(data);
       notificationService.success("Welcome " + data.firstName);
@@ -45,7 +48,12 @@ function Register(): JSX.Element {
         <input type="password" {...register("password", { required: true })} />
         {errors.password && <p>Password is required.</p>}
 
-        <button>Create new user</button>
+        <button type="submit">Create new user</button>
+
+        {/* Redirect to the main page after successful registration */}
+        <NavLink to="/" className="redirect-link">
+          Back to main page
+        </NavLink>
       </form>
     </div>
   );

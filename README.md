@@ -1,46 +1,46 @@
-# Getting Started with Create React App
+# Coupons Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a Coupons Website project that allows users to register, login, and purchase coupons based on their role (customer, company, or admin). It provides a user-friendly interface for browsing and managing coupons.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- User Registration: Users can create an account by registering with their username, password, and role (customer, company, or admin).
+- User Login: Registered users can log in with their credentials to access their account and perform various actions.
+- Role-based Authorization: Different roles have different permissions and access levels within the website.
+- Coupon Purchase: Customers can browse and purchase available coupons.
+- Coupon Management (for Companies and Admin): Companies and admin users can create, edit, and delete coupons.
+- Responsive Design: The website is designed to be responsive and compatible with different screen sizes and devices.
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Front-end:
+  - React.js: JavaScript library for building user interfaces.
+  - React Router: Library for routing and navigation in a React application.
+  - Redux: State management library for managing application-level state.
+  - Axios: HTTP client for making API requests.
+  - React Hook Form: Library for handling form validation and submission in React.
+  - CSS: Styling the components and layout.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Back-end:
+  - Spring Boot: Java framework for building web applications.
+  - Spring Security: Authentication and authorization framework for securing the application.
+  - JWT (JSON Web Tokens): Token-based authentication mechanism for user authorization.
+  - Spring Data JPA: Persistence framework for interacting with the database.
+  - MySQL: Relational database management system for data storage.
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `npm run build`
+- Node.js: Make sure you have Node.js installed on your machine.
+- Java Development Kit (JDK): Install JDK to run the Spring Boot back-end.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repository:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Install the front-end dependencies:
+npm start
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

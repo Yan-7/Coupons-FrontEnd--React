@@ -40,6 +40,10 @@ function AuthMenu(): JSX.Element {
                     <span> | </span>
 
                     <NavLink to="/login">Login</NavLink>
+
+                    <span> | </span>
+
+                    <NavLink to="/logout">logout</NavLink>
                 </>
             }
 

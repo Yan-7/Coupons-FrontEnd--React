@@ -1,0 +1,14 @@
+.CustomerPage {
+    text-align: center;
+  }
+  
+  .CustomerPage h2 {
+    margin-bottom: 20px;
+  }
+  
+  .CustomerPage .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  

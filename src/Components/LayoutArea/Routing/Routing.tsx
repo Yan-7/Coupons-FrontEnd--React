@@ -15,6 +15,7 @@ import EditCoupon from "../../CouponsArea/EditCoupon/EditCoupon";
 import Login from "../../AuthArea/Login/Login";
 import Register from "../../AuthArea/Register/Register";
 import Logout from "../../AuthArea/Logout/Logout";
+import CustomerPage from "../Customer/CustomerPage/CustomerPage";
 
 
 function Routing(): JSX.Element {
@@ -44,6 +45,7 @@ function Routing(): JSX.Element {
                 
                 <Route path="*" element={<PageNotFound />} />
 
+                <Route path="/customer/customer-page" element= {<CustomerPage/>} />
 
             </Routes>
         </div>
