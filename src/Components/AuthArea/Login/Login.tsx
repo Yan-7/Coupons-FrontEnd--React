@@ -20,6 +20,7 @@ const navigate = useNavigate();
       await authService.login(credentials);
       notificationService.success(`Logged in as ${credentials.role}, it's good to have you again`);
       
+
       // Redirect to the desired page
       navigate("/customer/customer-page"); 
       

@@ -5,6 +5,7 @@ import { authStore, loginAction, logoutAction, registerAction } from "../Redux/A
 import CredentailsModel from "../Models/CredentailsModel";
 
 class AuthService {
+  [x: string]: any;
   async register(user: UserModel): Promise<void> {
     try {
       const response = await axios.post<string>(appConfig.registerUrl, user); // Added 'user' to the request
